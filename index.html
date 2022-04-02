@@ -1,98 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <title>Weather Dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <title>Weather Dashboard</title>
 </head>
-<body>
-    <div class="banner">
-        <div class="container">
-          <h1 class="display-4">Weather Dashboard</h1>
-        </div>
+
+<body class="container-fluid">
+  <div class="banner">
+    <!-- <div class="container-fluid"> -->
+    <h1 class="display-4">Weather Dashboard</h1>
+  </div>
+
+
+  <!-- <body class="container-fluid"> -->
+  <div class="row">
+    <aside class=" w-100 h-100 d-flex flex-column col-md-3 " id="searchBar">
+      <h2>Search for a City:</h2>
+      <input class="w-100" type="text" id="search-city" placeholder="Enter a City" />
+      <button class="m-1 w-100 btn btn-search" id="searchBtn">Search</button>
+      <form id="history"></form>
+    </aside>
+
+
+    <main id="main">
+       <article class="d-flex flex-column col-md-9 mainWeather" id="mainWeather">
+        <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+
+        <!-- <div class= "row"> -->
+        <!-- <h2>Name of City(3/30/3021) emoji of weather</h2>
+        <p>Temp</p>
+        <p>Wind</p>
+        <p>Humidity</p>
+        <p>UV Index (color changing button</p> -->
+        </article>
+
+      <div class="d-flex flex-column col-md-9">
+        <!-- <h2>5-Day Forecast:</h2> -->
       </div>
 
-      <body class="container">
-        <div class="d-flex row">
-          <aside class=" w-100 h-100 d-flex flex-column col-md-4 " id="searchBar">
-            <h2>Search for a City:</h2>
-            <input class= "w-100" type="text" id="search-city" placeholder="City Name" />
-            
-            <button class="m-1 w-100 btn btn-search" id="searchBtn">Search</button>
-          
-          </aside>
-          
-        <main>
-            <div class= "d-flex flex-column col-md-10" id="mainWeather">
-                <h2>Name of City(3/30/3021) emoji of weather</h2>
-                <p>Temp</p>
-                <p>Wind</p>
-                <p>Humidity</p>
-                <p>UV Index (color changing button</p>
-            </div>
-            
-            <div class="d-flex flex-column col-md-10">
-                <h2>5-Day Forecast:</h2>
-            </div>
-       
-       
-            <div class="weatherBoxes">
-                <div class=" col-md-2">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">date</h5>
-                        <p class="card-text">weather icon</p>
-                        <p>temp</p>
-                        <p>wind</p>
-                        <p>humidity</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex flex-column col-md-2">
-                  <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">date</h5>
-                      <p class="card-text">weather icon</p>
-                      <p>temp</p>
-                      <p>wind</p>
-                      <p>humidity</p>
-                     
-                    </div>
-                  </div>
-                </div>
-           </div>
-         
-              
-            
-            <!-- <div class ="col-md-2">
-                <div style=" width: 100px; float:left; height:100px; margin:10px">
-                </div>
-            </div>
-            <div style=" width: 100px; float:left; height:100px; margin:10px">
-                
-                </div>
-                <div style="width: 100px; float:left; height:100px; background:yellow; margin:10px">
-                Second DIV
-                </div> -->
-<!--             
 
-            <div class="d-flex  col-md-2">dates</div>
-       
-            <div class="d-flex flex-column col-md-2">dates</div>
-        
-            <div class="d-flex flex-column col-md-2">dates</div>
-            <div class="d-flex flex-column col-md-2">dates</div>
-            <div class="d-flex flex-column col-md-2">dates</div>
-            </section> -->
-        </main>
-    </div>
-    
-    
-    <script src="assets/js/script.js"></script>
+      <!-- <div class="weatherBoxes">
+        <div class=" col-md-2">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">date</h5>
+              <p class="card-text">weather icon</p>
+              <p>temp</p>
+              <p>wind</p>
+              <p>humidity</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column col-md-2">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">date</h5>
+              <p class="card-text">weather icon</p>
+              <p>temp</p>
+              <p>wind</p>
+              <p>humidity</p> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>
