@@ -1,0 +1,20 @@
+body{
+    height: 0;
+    width:0;
+}
+/* main{
+    height: 100%; */
+/* } */
+.banner{
+    background-color: rgb(79, 79, 221);
+    color: white;
+    text-align: center;
+}
+
+#searchBar{
+    border-bottom: black solid;
+}
+
+.weatherBoxes {
+    display:inline-block;
+}
