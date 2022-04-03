@@ -1,4 +1,4 @@
-body{
+/* body{
     height: 0;
     width:0;
 }
@@ -11,21 +11,21 @@ body{
     text-align: center;
 }
 
-#searchBar{
+/* #searchBar{
     border-bottom: black solid;
     padding: 5px;
-}
+}  */
 
 /* #mainWeather{
     border: black 1px solid;
     padding: 10px;
 } */
 
-.weatherBoxes {
-    display:inline-block;
-}
+/* .weatherBoxes {
+    display:inline-block; */
+/* }
 .mainWeather{
   
     border-bottom: black solid 1px;
    
-}
+} */

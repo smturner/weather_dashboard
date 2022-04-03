@@ -13,14 +13,32 @@ var searchCity = $("#search-city");
 var APIKey = "617a9189a649772e2330c08de56b1117";
 var city= $(".city");
 //function for button to work
-searchBtn.on("click", function (event) {
+searchBtn.on("click", function () {
 //   event.preventDefult();
     var userSearchCity = searchCity.val();
     // //where my button is going
     document.location.href = "./index.html?search=" + userSearchCity;
     // saveSearch(userSearchCity)
-    localStorage.setItem("city", JSON.stringify(userSearchCity))
+    localStorage.setItem("city", JSON.stringify(userSearchCity));
+    // pastSearch();
 });
+
+//FUNCTION TO GET DATA BACCK ON THE SCREEN COME BAACK TO
+// function pastSearch(){
+//     console.log(pastSearch)
+//     var ulEl =$("<ul>");
+//     var asideEl = $("<aside>");
+
+//     var pastCities=JSON.parse(localStorage.getItem("city")) || [];
+//     console.log("pastCities")
+//     for(var i=0; index<pastCities.length; i++){
+//         var pastCitiesEL=pastCities[i];
+//         var liEl =$("<li>");
+//         liEl.text(pastCities);
+//         ulEl.append(liEl)
+//     }
+//     asideEl.append(ulEl)
+// }
 
 //working local storage
 // var saveSearch= function(saveSearch){
