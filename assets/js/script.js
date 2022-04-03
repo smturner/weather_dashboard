@@ -1,24 +1,55 @@
+//add date to name of city
+//add weather icon
+//save to local storage
+    //display on screen from local storage
+//add 5 day weather forcast
+    //each in their own boxes
+
+
+//variable for search button
 var searchBtn = $("#searchBtn");
+//variable for the input data
 var searchCity = $("#search-city");
 var APIKey = "617a9189a649772e2330c08de56b1117";
 
+//function for button to work
 searchBtn.on("click", function (event) {
-    // event.preventDefult();
-    // alert("hello");
-    // console.log(searchCity.val());
+//   event.preventDefult();
     var userSearchCity = searchCity.val();
+    // //where my button is going
     document.location.href = "./index.html?search=" + userSearchCity;
-    // console.log(searchCity)
+    saveSearch();
+    pastSearch(city);
 });
 
-// var urlData = document.location;
-// console.log(urlData);
+var saveSearch= (function(saveSearch){
+    console.log(saveSearch)
+    localStorage.setItem("city", JSON.stringify(cities));
+});
+
+var pastSearch= (function(pastSearch){
+    console.log(pastSearch)
+    pastSearch= $("<button>");
+    pastSearch.text(pastSearch);
+    pastSearch.setAttribute("data-city", pastSearch);
+    pastSearch.setAttribute("type", "submit")
+
+    pastSearchButtonEl.prepend(pastSearch);
+// pastSearch= $("<button>");
+// pastSearchEl.textContent=past
+})
 
 
+//how to get the results
+//variable to get the data from the url to the webpage
 var urlData = document.location.search;
 // console.log(urlData)
 
+//Variable to give you just the name of the city you are searching
 var searchCityName = urlData.split("=")[1];
+
+https://api.openweathermap.org/geo/1.0/direct
+// console.log(searchCityName)
 var mainWeather = $("#main");
 
 // // var searchCity= urlData.split("=")[1];
@@ -26,8 +57,8 @@ var mainWeather = $("#main");
 // var locationApiUrl ="http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=617a9189a649772e2330c08de56b1117";
 var lat;
 var lon;
-var city;
-fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=617a9189a649772e2330c08de56b1117")
+var cities =[];
+fetch("http://api.openweathermap.org/geo/1.0/direct?q=" +searchCityName+ "&limit=1&appid=617a9189a649772e2330c08de56b1117")
     .then(function(response){
         return response.json();
     })
@@ -59,7 +90,9 @@ fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=617a9
         var humidityEl=$("<h5>");
         var uvi=$("<h5>");
         var forcast =$("<div>");
-        var divEL= $("<div class='first'>")
+        var div1EL= $("<div class='first'>")
+        var eachDay=$("<div>")
+        var div2El= $("<div class='second'>")
                 //     var iconcode = data.current.weather[0];
     //     console.log(iconcode)
     //     $('#wicon').attr('src', iconcode);
@@ -81,11 +114,17 @@ fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=617a9
             uvi.text("UV Index: " + data.current.uvi);
                 articleEl.append(uvi);
             forcast.text("5-Day Forcast")
-            divEL.append(forcast)
+            div1EL.append(forcast)
+            eachDay.text(data.daily[1].temp.day);
+            div2El.append(eachDay)
+            
             
         mainWeather.append(articleEl);
-        mainWeather.append(divEL);
+        mainWeather.append(div1EL);
+        mainWeather.append(div2El)
+
         
+
     });
 
     })
