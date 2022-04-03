@@ -11,33 +11,24 @@ var searchBtn = $("#searchBtn");
 //variable for the input data
 var searchCity = $("#search-city");
 var APIKey = "617a9189a649772e2330c08de56b1117";
-
+var city= $(".city");
 //function for button to work
 searchBtn.on("click", function (event) {
 //   event.preventDefult();
     var userSearchCity = searchCity.val();
     // //where my button is going
     document.location.href = "./index.html?search=" + userSearchCity;
-    saveSearch();
-    pastSearch(city);
+    // saveSearch(userSearchCity)
+    localStorage.setItem("city", JSON.stringify(userSearchCity))
 });
 
-var saveSearch= (function(saveSearch){
-    console.log(saveSearch)
-    localStorage.setItem("city", JSON.stringify(cities));
-});
+//working local storage
+// var saveSearch= function(saveSearch){
+//     localStorage.setItem("city", JSON.stringify(city));
+//     console.log(localStorage.getItem("city"))
+// }
 
-var pastSearch= (function(pastSearch){
-    console.log(pastSearch)
-    pastSearch= $("<button>");
-    pastSearch.text(pastSearch);
-    pastSearch.setAttribute("data-city", pastSearch);
-    pastSearch.setAttribute("type", "submit")
 
-    pastSearchButtonEl.prepend(pastSearch);
-// pastSearch= $("<button>");
-// pastSearchEl.textContent=past
-})
 
 
 //how to get the results
@@ -57,7 +48,9 @@ var mainWeather = $("#main");
 // var locationApiUrl ="http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=617a9189a649772e2330c08de56b1117";
 var lat;
 var lon;
-var cities =[];
+var city;
+
+
 fetch("http://api.openweathermap.org/geo/1.0/direct?q=" +searchCityName+ "&limit=1&appid=617a9189a649772e2330c08de56b1117")
     .then(function(response){
         return response.json();
