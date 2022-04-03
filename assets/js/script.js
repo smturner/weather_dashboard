@@ -1,7 +1,6 @@
 var searchBtn = $("#searchBtn");
 var searchCity = $("#search-city");
 var APIKey = "617a9189a649772e2330c08de56b1117";
-// var city;
 
 searchBtn.on("click", function (event) {
     // event.preventDefult();
@@ -24,45 +23,52 @@ var mainWeather = $("#main");
 
 // // var searchCity= urlData.split("=")[1];
 // // console.log(searchCity)
-
-var locationApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=617a9189a649772e2330c08de56b1117";
-
-fetch(locationApiUrl)
+// var locationApiUrl ="http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=617a9189a649772e2330c08de56b1117";
+var lat;
+var lon;
+var city;
+fetch("http://api.openweathermap.org/geo/1.0/direct?q=London&limit=1&appid=617a9189a649772e2330c08de56b1117")
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        console.log(data);
-        console.log(data);
-        
-    })
+        console.log(data)
+        // console.log(data[0].lat);
+        city=data[0].name;
+           
+        lat=data[0].lat;
+        console.log(lat)
+        lon=data[0].lon;
+        var articleEl= $("<article>");
+        var cityName= $("<h2>");
+        cityName.text(data[0].name);
+        articleEl.append(cityName);
+        mainWeather.append(articleEl);
 
-    var weaterApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=617a9189a649772e2330c08de56b1117";
-
-
-
-fetch(weaterApiUrl)
-    .then(function (response) {
+        return fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon=" +lon+ "&units=imperial&appid=617a9189a649772e2330c08de56b1117")
+        .then(function (response) {
         return response.json();
     })
     .then(function (data) {
         console.log(data);
-        var articleEl= $("<article>");
+        var articleEl= $("<article class='mainWeather'>");
         var titleEl = $("<h2>");
-        var icon= $("<img>")
+        // var icon= $(".icon").html("<img src=' + icon + '>");
         var tempEl = $("<h5>");
         var windEl= $("<h5>");
         var humidityEl=$("<h5>");
-
-    //     var iconcode = data.current.weather[0];
+        var uvi=$("<h5>");
+        var forcast =$("<div>");
+        var divEL= $("<div class='first'>")
+                //     var iconcode = data.current.weather[0];
     //     console.log(iconcode)
     //     $('#wicon').attr('src', iconcode);
 
     //    articleEl.append(iconcode)
 
-    $(".icon").html("<img src=' + icon + '>");
 
-        // icon.text(data.current.weather[0].icon);
+
+        // icon.text(data.current.weather[0]);
         //     articleEl.append(icon)
         tempEl.text("Temp: " + data.current.temp + "°F");
             articleEl.append(tempEl);
@@ -72,8 +78,68 @@ fetch(weaterApiUrl)
         //     articleEl.append(windEl);
         humidityEl.text("Humidity: " + data.current.humidity + "%");
             articleEl.append(humidityEl);
+            uvi.text("UV Index: " + data.current.uvi);
+                articleEl.append(uvi);
+            forcast.text("5-Day Forcast")
+            divEL.append(forcast)
+            
         mainWeather.append(articleEl);
+        mainWeather.append(divEL);
+        
     });
+
+    })
+    
+        // console.log(data[0].lat);
+        // var lat=$(data[0].lat)
+        // console.log(lat)
+        // var lon=$(data[0].lon)
+        // console.log(lon)
+    
+       
+
+    // })
+
+
+    // var weaterApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=617a9189a649772e2330c08de56b1117";
+       
+
+    // fetch(weaterApiUrl )
+    // .then(function (response) {
+    //     return response.json();
+    // })
+    // .then(function (data) {
+    //     console.log(data);
+    //     var articleEl= $("<article class='p-9'>");
+    //     var titleEl = $("<h2>");
+    //     // var icon= $(".icon").html("<img src=' + icon + '>");
+    //     var tempEl = $("<h5>");
+    //     var windEl= $("<h5>");
+    //     var humidityEl=$("<h5>");
+
+    // //     var iconcode = data.current.weather[0];
+    // //     console.log(iconcode)
+    // //     $('#wicon').attr('src', iconcode);
+
+    // //    articleEl.append(iconcode)
+
+
+
+    //     // icon.text(data.current.weather[0]);
+    //     //     articleEl.append(icon)
+    //     tempEl.text("Temp: " + data.current.temp + "°F");
+    //         articleEl.append(tempEl);
+    //     windEl.text("Wind: " + data.current.wind_speed + " MPH");
+    //         articleEl.append(windEl);
+    //     // windEl= $("Wind: " + data.current.wind_speed ) ;
+    //     //     articleEl.append(windEl);
+    //     humidityEl.text("Humidity: " + data.current.humidity + "%");
+    //         articleEl.append(humidityEl);
+    //     mainWeather.append(articleEl);
+    // });
+
+
+
 
 // fetch(locationApiUrl)
 //     .then(function(response){
