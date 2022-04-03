@@ -10,7 +10,7 @@
 var searchBtn = $("#searchBtn");
 //variable for the input data
 var searchCity = $("#search-city");
-var APIKey = "617a9189a649772e2330c08de56b1117";
+var APIKey = $("617a9189a649772e2330c08de56b1117");
 var city= $(".city");
 //function for button to work
 searchBtn.on("click", function () {
