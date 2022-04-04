@@ -29,7 +29,13 @@ input {
 
 .forecast{
     margin:5px;
+    border: black solid;
 }
+
+/* .five-day-container{
+    border: black solid;
+
+} */
 
 /* #searchBar{
     border-bottom: black solid;

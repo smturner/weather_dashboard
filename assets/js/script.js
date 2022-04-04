@@ -1,4 +1,17 @@
-var searchBtn
+var searchBtn= $(".searchBtn")
+var searchInput= $(".searchInput")
+var APIKey = $("617a9189a649772e2330c08de56b1117");
+var userSearchCity= searchInput.val();
+
+searchBtn.on("click", function () {
+//   event.preventDefult();
+    userSearchCity = searchInput.val();
+    // //where my button is going
+    document.location.href = "./index.html?search=" + userSearchCity;
+    // saveSearch(userSearchCity)
+    // pastSearch();
+    localStorage.setItem("city", JSON.stringify(userSearchCity));
+});
 
 
 
