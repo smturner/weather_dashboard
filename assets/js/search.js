@@ -7,13 +7,14 @@ var tempEl =$(".cityTemp");
 var windEL= $(".cityWind");
 var humidityEl=$(".cityHumidity");
 var indexEl=$(".cityIndex");
-
 var searchHistory=$(".searchHistory")
 var pastCities=[];
 
-// console.log(cityName)
 
-// var indexNumber=$(".indexNumber");
+// var history=(JSON.parse(localStorage.getItem("city")))|| [];
+// console.log(history)
+// searchHistory.text(history.join(" "))  
+
 
 
 searchBtn.on("click", function (searchBtn) {
@@ -26,43 +27,12 @@ searchBtn.on("click", function (searchBtn) {
     pastCities.push(cityName)
     localStorage.setItem("city", JSON.stringify(pastCities))
 
-    // for (var i=0; i<history.length; i++){
-        searchHistory.text(history)
-    }
-    // localStorage.setItem("city", JSON.stringify(pastCities))
-
-    // searchHistory.text(history)
-        // var historySearch=history[i];
-      
-        // console.log(savedHistory)
-        // for (let index = 0; index < highScoresArr.length; index++) {
-        //     var highScore = highScoresArr[index];
-        //     var listItem= document.createElement("li");
-        //     listItem.textContent= `${highScore.initials} - ${highScore.score}`; 
-        //     highScoreList.append(listItem)
-        // function renderHighScore(){
-        //     var startScreenEl = document.getElementById("start-screen");
-        //       startScreenEl.setAttribute("class", "hide") 
-        //     var endScreenEl = document.getElementById("finished-page");
-        //       endScreenEl.setAttribute("class", "hide");
-        //     var highScoreList= document.createElement("ul");
-        //     var highScoreEl =document.getElementById("highScores");
-        //       highScoreEl.setAttribute("class", "show");
-        //     var highScoresArr=JSON.parse(localStorage.getItem("highscores")) || [];
-        //     console.log(highScoresArr)
-        //     for (let index = 0; index < highScoresArr.length; index++) {
-        //       var highScore = highScoresArr[index];
-        //       var listItem= document.createElement("li");
-        //       listItem.textContent= `${highScore.initials} - ${highScore.score}`; 
-        //       highScoreList.append(listItem)
-        //     }
-        
-        //     highScoreEl.append(highScoreList)
-        //    }
-        
+        searchHistory.text(history)  
 
     getApi()
-    //   event.preventDefult();
+})
+  
+//   event.preventDefult();
         // // // //where my button is going
         // var userSearchCity = searchInput.val();
 
@@ -72,10 +42,10 @@ searchBtn.on("click", function (searchBtn) {
 
 // var searchCityName = urlData.split("=")[1];
 // console.log(searchCityName)
-})
-;
+
 
 function getApi(){
+
     var userSearchCity = searchCity.val();
     console.log(userSearchCity)
     var infoUrl= "https://api.openweathermap.org/data/2.5/weather?q=" +userSearchCity+ "&units=imperial&appid=617a9189a649772e2330c08de56b1117"
@@ -92,6 +62,13 @@ fetch(infoUrl)
         tempEl.text("Temperature: " + data.main.temp + "°F");
         windEL.text("Wind: " +data.wind.speed+ " MPH");
         humidityEl.text("Humidity: " +data.main.humidity+ "%")
+
+        // for (var i=1; i < 6; i++){
+        //     // var date5Day= $(".card-date")
+        //     var tempDaily = $("#card-temp")
+        //     tempDaily.text("Temp: " +data.daily[i].temp);
+
+        // }
 
         var latEl= (data.coord.lat)
         var lonEl= (data.coord.lon)
@@ -114,29 +91,59 @@ fetch(infoUrl)
             if (data.current.uvi>=8 & data.current.uvi<=10){
                 indexEl.addClass("red")
             }
-            if (data.current.uvi>=6 & data.current.uvi<=7){
+            if (data.current.uvi>=5 & data.current.uvi<=7){
                 indexEl.addClass("orange")
             }
             if (data.current.uvi>=3 & data.current.uvi <=5){
                 indexEl.addClass("yellow")
             }
-            if (data.current.uvi<=2)
+            if (data.current.uvi<=2) {
                 indexEl.addClass("green")
+        }
+        // document.location.href= "./new.html"
+        // for(var i=0; i<6; i++){
+            console.log(data.daily[0])
+            var date5Day=$("#card-date0")
+            date5Day.text(data.daily[0].dt)
+            var reformatDate= moment(date5Day).add(1,"days").format("M/D/YY")
+            console.log(reformatDate)
+            date5Day.text(reformatDate)
+            console.log(date5Day)
+            var temp5Day= $("#card-temp0")
+            temp5Day.text("Temp: "+ data.daily[0].temp.day +"°F");
+            var wind5Day=$("#card-wind0")
+            wind5Day.text("Wind: " + data.daily[0].wind_speed + " MPH");
+            var humidity5Day=$("#card-humidity0")
+            humidity5Day.text("Humidity: "+ data.daily[0].humidity + " %")
 
-            var forcastUrl= "https://api.openweathermap.org/data/2.5/forecast?lat="+latEl+"&lon="+lonEl+"&units=imperial&appid=617a9189a649772e2330c08de56b1117"
-            fetch (forcastUrl)
-            .then(function(response){
-                return response.json();
-            })
-            .then(function (data){
-                console.log(data.list[""])
-                // for(i=5, i<data.list.length, i+8)
-                
-            })
+            console.log(data.daily[1])
+            var date5Day=$("#card-date1")
+            date5Day.text(data.daily[1].dt)
+            var reformatDate= moment(date5Day).add(2,"days").format("M/D/YY")
+            console.log(reformatDate)
+            date5Day.text(reformatDate)
+            console.log(date5Day)
+            var temp5Day= $("#card-temp1")
+            temp5Day.text("Temp: "+ data.daily[1].temp.day +"°F");
+            var wind5Day=$("#card-wind1")
+            wind5Day.text("Wind: " + data.daily[1].wind_speed + " MPH");
+            var humidity5Day=$("#card-humidity1")
+            humidity5Day.text("Humidity: "+ data.daily[1].humidity + " %")
 
-       })
-
+    
+    
+        //     var dateDiv= document.getElementById('')
+        })
     })
 }
+
+            // .then(function(response){
+            //     return response.json();
+            // })
+            // .then(function (data){
+            //     console.log(data.list[""])
+            //     // for(i=5, i<data.list.length, i+8)
+    
+  
 
  
