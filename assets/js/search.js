@@ -2,7 +2,8 @@ var searchBtn =$(".searchBtn");
 var searchCity =$("#search-city");
 var searchInput = $(".search-input");
 var nameEL =$(".cityName");
-var iconEl=$(".icon")
+var iconEl=$("#weather-icon")
+console.log(iconEl)
 var tempEl =$(".cityTemp");
 var windEL= $(".cityWind");
 var humidityEl=$(".cityHumidity");
@@ -47,7 +48,7 @@ searchBtn.on("click", function (searchBtn) {
 function getApi(){
 
     var userSearchCity = searchCity.val();
-    console.log(userSearchCity)
+    // console.log(userSearchCity)
     var infoUrl= "https://api.openweathermap.org/data/2.5/weather?q=" +userSearchCity+ "&units=imperial&appid=617a9189a649772e2330c08de56b1117"
 fetch(infoUrl)
     .then(function(response){
@@ -58,7 +59,13 @@ fetch(infoUrl)
         // var weatherIcon=(data.weather[0].icon)
         // console.log(weatherIcon)
         nameEL.text(data.name + "   "+  moment().format("L")) ;
-        // iconEl=`https://openweathermap.org/img/wn/" + weatherIcon+ "&@2x.png`
+        var dataIcon= (data.weather[0].icon)
+        console.log (dataIcon)
+        var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+
+        iconEl.attr("src", iconUrl);
+        console.log(iconEl)
+        iconEl.append(iconUrl)
         tempEl.text("Temperature: " + data.main.temp + "°F");
         windEL.text("Wind: " +data.wind.speed+ " MPH");
         humidityEl.text("Humidity: " +data.main.humidity+ "%")
@@ -109,6 +116,13 @@ fetch(infoUrl)
             console.log(reformatDate)
             date5Day.text(reformatDate)
             console.log(date5Day)
+            var dataIcon= (data.weather[0].icon)
+            console.log (dataIcon)
+            var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+    
+            iconEl.attr("src", iconUrl);
+            console.log(iconEl)
+            iconEl.append(iconUrl)
             var temp5Day= $("#card-temp0")
             temp5Day.text("Temp: "+ data.daily[0].temp.day +"°F");
             var wind5Day=$("#card-wind0")
