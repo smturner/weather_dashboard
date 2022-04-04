@@ -6,6 +6,7 @@ var tempEl =$(".cityTemp");
 var windEL= $(".cityWind");
 var humidityEl=$(".cityHumidity");
 var indexEl=$(".cityIndex");
+// var indexNumber=$(".indexNumber");
 
 
 searchBtn.on("click", function () {
@@ -43,7 +44,10 @@ fetch(infoUrl)
        })
        .then(function (data){
            console.log(data)
-            indexEl.text("UV Index: " + data.current.uvi)
+            // indexEl.text()
+            // console.log(indexEl)
+            // indexNumber.append(indexEl)
+            indexEl.text("Uv Index: "+ data.current.uvi)
             console.log(indexEl)
             indexEl.removeClass("purple red orange yellow green") 
             if (data.current.uvi>=11) {
@@ -60,6 +64,17 @@ fetch(infoUrl)
             }
             if (data.current.uvi<=2)
                 indexEl.addClass("green")
+
+            var forcastUrl= "https://api.openweathermap.org/data/2.5/forecast?lat="+latEl+"&lon="+lonEl+"&units=imperial&appid=617a9189a649772e2330c08de56b1117"
+            fetch (forcastUrl)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function (data){
+                console.log(data.list[""])
+                for(i=5, i<data.list.length, i+8)
+                
+            })
 
        })
 
