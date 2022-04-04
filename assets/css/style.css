@@ -12,25 +12,6 @@ body{
     color: white;
     text-align: center;
 }
-.search{
-    margin:5px;
-}
-input {
-    border: 1px solid #cecfd2;
-    border-radius: 5px;
-}
-
-.container-fluid {
-    display: flex;
-    flex-direction: row;
-    /* max-width: 640px;
-    height: 100%; */
-}
-
-.forecast{
-    margin:5px;
-    border: black solid;
-}
 
 /* .five-day-container{
     border: black solid;
