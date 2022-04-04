@@ -12,7 +12,26 @@ body{
     color: white;
     text-align: center;
 }
+.purple{
+    background-color: purple;
+}
 
+.red{
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+.yellow{
+    background-color: yellow;
+}
+
+.green{
+    background-color: green;
+}
+
+.
 /* .five-day-container{
     border: black solid;
 
