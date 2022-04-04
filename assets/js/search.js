@@ -101,7 +101,7 @@ fetch(infoUrl)
                 indexEl.addClass("green")
         }
         // document.location.href= "./new.html"
-        // for(var i=0; i<6; i++){
+        //Day 1 5 day forcast
             console.log(data.daily[0])
             var date5Day=$("#card-date0")
             date5Day.text(data.daily[0].dt)
@@ -115,7 +115,7 @@ fetch(infoUrl)
             wind5Day.text("Wind: " + data.daily[0].wind_speed + " MPH");
             var humidity5Day=$("#card-humidity0")
             humidity5Day.text("Humidity: "+ data.daily[0].humidity + " %")
-
+        //Day 2-5 day forcast
             console.log(data.daily[1])
             var date5Day=$("#card-date1")
             date5Day.text(data.daily[1].dt)
@@ -129,6 +129,50 @@ fetch(infoUrl)
             wind5Day.text("Wind: " + data.daily[1].wind_speed + " MPH");
             var humidity5Day=$("#card-humidity1")
             humidity5Day.text("Humidity: "+ data.daily[1].humidity + " %")
+        //Day 3-5 day forcast
+            console.log(data.daily[2])
+            var date5Day=$("#card-date2")
+            date5Day.text(data.daily[2].dt)
+            var reformatDate= moment(date5Day).add(3,"days").format("M/D/YY")
+            console.log(reformatDate)
+            date5Day.text(reformatDate)
+            console.log(date5Day)
+            var temp5Day= $("#card-temp2")
+            temp5Day.text("Temp: "+ data.daily[2].temp.day +"°F");
+            var wind5Day=$("#card-wind2")
+            wind5Day.text("Wind: " + data.daily[2].wind_speed + " MPH");
+            var humidity5Day=$("#card-humidity2")
+            humidity5Day.text("Humidity: "+ data.daily[2].humidity + " %")
+        //Day 4-5 day forcast
+            console.log(data.daily[3])
+            var date5Day=$("#card-date3")
+            date5Day.text(data.daily[3].dt)
+            var reformatDate= moment(date5Day).add(4,"days").format("M/D/YY")
+            console.log(reformatDate)
+            date5Day.text(reformatDate)
+            console.log(date5Day)
+            var temp5Day= $("#card-temp3")
+            temp5Day.text("Temp: "+ data.daily[3].temp.day +"°F");
+            var wind5Day=$("#card-wind3")
+            wind5Day.text("Wind: " + data.daily[3].wind_speed + " MPH");
+            var humidity5Day=$("#card-humidity3")
+            humidity5Day.text("Humidity: "+ data.daily[3].humidity + " %")
+        //Day 5-5 day forcast
+        console.log(data.daily[4])
+            var date5Day=$("#card-date4")
+            date5Day.text(data.daily[4].dt)
+            var reformatDate= moment(date5Day).add(5,"days").format("M/D/YY")
+            console.log(reformatDate)
+            date5Day.text(reformatDate)
+            console.log(date5Day)
+            var temp5Day= $("#card-temp4")
+            temp5Day.text("Temp: "+ data.daily[4].temp.day +"°F");
+            var wind5Day=$("#card-wind4")
+            wind5Day.text("Wind: " + data.daily[4].wind_speed + " MPH");
+            var humidity5Day=$("#card-humidity4")
+            humidity5Day.text("Humidity: "+ data.daily[4].humidity + " %")
+
+
 
     
     
