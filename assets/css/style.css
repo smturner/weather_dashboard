@@ -13,22 +13,22 @@ body{
     text-align: center;
 }
 .purple{
-    background-color: purple;
+    background-color: rgb(194, 154, 194);
 }
 
 .red{
-    background-color: red;
+    background-color: rgb(243, 125, 125);
 }
 
 .orange {
-    background-color: orange;
+    background-color: rgb(248, 189, 78);
 }
 .yellow{
-    background-color: yellow;
+    background-color: rgb(250, 234, 144);
 }
 
 .green{
-    background-color: green;
+    background-color: rgb(133, 221, 133);
 }
 
 .card{
@@ -45,7 +45,10 @@ p {
     text-align: left;
     padding:0px;
 }
-.
+
+.cityIndex{
+    color:grey;
+}
 /* .five-day-container{
     border: black solid;
 
