@@ -1,19 +1,19 @@
 # weather_dashboard
-This is a work day scheduler that shows green if it's future time, red if it's the present time, and grey if it's the past time. It also allows you to put in hourly tasks and will save them to local storage so when you reopen this page your tasks will still be there.
+This is a weather dashboard that gives you current information for any city that you search. Just put in your city in the search bar and click search and the current weather, as well as the next 5 days of weather will show up.
 
 ## Screen-Shot
 
-![This photo shows the application in use with things in different rows. It dose not show the coloring because it was after 5 when the photo was captured](./photo1.png)
+![This photo shows my deployed application when a city name is searched. It shows the current weather and the next 5 days below it.](./photo1.png)
 
 
 
 ## Project Features
 This project has the following features:
 <ul>
-<li> When you open the page it will tell you the date at the top. </li>
-<li> It has your work day hours in it 9-5 with boxes that you are able to write your hourly tasks in.</li>
-<li> Once you write your task you can click the save button on the side, which will highlight, and your task will be saved on the page for future reference. </li>
-<li> The hours are color coded so you know what task you should be on. They are color coded grey for past, red for present, and green for future hours.</li>
+<li> When the page is opened you have a search bar but no weather information on the page </li>
+<li> Type in the city of the where you want to recieve weather information for and click search</li>
+<li> The search button will then open the information in the boxes next to it with the top being the current weather for that location and below is the next 5 day weather forcast for the same city </li>
+
 </ul>
 
 

@@ -95,16 +95,16 @@ fetch(infoUrl)
             if (data.current.uvi>=11) {
                 indexEl.addClass("purple")
             }
-            if (data.current.uvi>=8 & data.current.uvi<=10){
+            if (data.current.uvi>=8 & data.current.uvi<=10.99){
                 indexEl.addClass("red")
             }
-            if (data.current.uvi>=5 & data.current.uvi<=7){
+            if (data.current.uvi>=6 & data.current.uvi<=7.99){
                 indexEl.addClass("orange")
             }
-            if (data.current.uvi>=3 & data.current.uvi <=5){
+            if (data.current.uvi>=3 & data.current.uvi <=5.99){
                 indexEl.addClass("yellow")
             }
-            if (data.current.uvi<=2) {
+            if (data.current.uvi<=2.99) {
                 indexEl.addClass("green")
         }
         // document.location.href= "./new.html"
