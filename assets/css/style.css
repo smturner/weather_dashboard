@@ -31,6 +31,20 @@ body{
     background-color: green;
 }
 
+.card{
+    text-align: left;
+    background-color: rgb(75, 75, 209)
+}
+
+.card-title{
+    color:white;
+}
+
+p {
+    color:rgb(234, 249, 250);
+    text-align: left;
+    padding:0px;
+}
 .
 /* .five-day-container{
     border: black solid;

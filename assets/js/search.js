@@ -116,13 +116,15 @@ fetch(infoUrl)
             console.log(reformatDate)
             date5Day.text(reformatDate)
             console.log(date5Day)
-            var dataIcon= (data.weather[0].icon)
+            var weatherIcon0=$("#weather-icon0")
+            var dataIcon= (data.daily[0].weather[0].icon)
             console.log (dataIcon)
             var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+            console.log(dataIcon)
     
-            iconEl.attr("src", iconUrl);
-            console.log(iconEl)
-            iconEl.append(iconUrl)
+            weatherIcon0.attr("src", iconUrl);
+            console.log(weatherIcon0)
+            weatherIcon0.append(iconUrl)
             var temp5Day= $("#card-temp0")
             temp5Day.text("Temp: "+ data.daily[0].temp.day +"°F");
             var wind5Day=$("#card-wind0")
@@ -136,7 +138,16 @@ fetch(infoUrl)
             var reformatDate= moment(date5Day).add(2,"days").format("M/D/YY")
             console.log(reformatDate)
             date5Day.text(reformatDate)
-            console.log(date5Day)
+            // console.log(date5Day)
+            var weatherIcon1=$("#weather-icon1")
+            var dataIcon= (data.daily[1].weather[0].icon)
+            console.log (dataIcon)
+            var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+            console.log(dataIcon)
+    
+            weatherIcon1.attr("src", iconUrl);
+            console.log(weatherIcon1)
+            weatherIcon1.append(iconUrl)
             var temp5Day= $("#card-temp1")
             temp5Day.text("Temp: "+ data.daily[1].temp.day +"°F");
             var wind5Day=$("#card-wind1")
@@ -151,6 +162,15 @@ fetch(infoUrl)
             console.log(reformatDate)
             date5Day.text(reformatDate)
             console.log(date5Day)
+            var weatherIcon2=$("#weather-icon2")
+            var dataIcon= (data.daily[2].weather[0].icon)
+            console.log (dataIcon)
+            var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+            console.log(dataIcon)
+    
+            weatherIcon2.attr("src", iconUrl);
+            console.log(weatherIcon2)
+            weatherIcon2.append(iconUrl)
             var temp5Day= $("#card-temp2")
             temp5Day.text("Temp: "+ data.daily[2].temp.day +"°F");
             var wind5Day=$("#card-wind2")
@@ -165,6 +185,15 @@ fetch(infoUrl)
             console.log(reformatDate)
             date5Day.text(reformatDate)
             console.log(date5Day)
+            var weatherIcon3=$("#weather-icon3")
+            var dataIcon= (data.daily[3].weather[0].icon)
+            console.log (dataIcon)
+            var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+            console.log(dataIcon)
+    
+            weatherIcon3.attr("src", iconUrl);
+            console.log(weatherIcon3)
+            weatherIcon3.append(iconUrl)
             var temp5Day= $("#card-temp3")
             temp5Day.text("Temp: "+ data.daily[3].temp.day +"°F");
             var wind5Day=$("#card-wind3")
@@ -179,6 +208,15 @@ fetch(infoUrl)
             console.log(reformatDate)
             date5Day.text(reformatDate)
             console.log(date5Day)
+            var weatherIcon4=$("#weather-icon4")
+            var dataIcon= (data.daily[4].weather[0].icon)
+            console.log (dataIcon)
+            var iconUrl="http://openweathermap.org/img/wn/" + dataIcon + "@2x.png"
+            console.log(dataIcon)
+    
+            weatherIcon4.attr("src", iconUrl);
+            console.log(weatherIcon4)
+            weatherIcon4.append(iconUrl)
             var temp5Day= $("#card-temp4")
             temp5Day.text("Temp: "+ data.daily[4].temp.day +"°F");
             var wind5Day=$("#card-wind4")
