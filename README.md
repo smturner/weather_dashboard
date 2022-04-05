@@ -19,6 +19,6 @@ This project has the following features:
 
 ## Links to Application
 
-<a href="">GitHub link </a>
+<a href="https://github.com/smturner/weather_dashboard">GitHub link </a>
 
-<a href="">Deployed Application </a>
+<a href="https://smturner.github.io/weather_dashboard/">Deployed Application </a>
