@@ -27,6 +27,7 @@ searchBtn.on("click", function (searchBtn) {
     getApi()
 })
 
+
 // function to get api data and display it on the page
 function getApi() {
 
